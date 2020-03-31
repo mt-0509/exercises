@@ -6,14 +6,26 @@
   <title>exercises</title>
 </head>
 <body>
-  <input type="button" name="link" value="TOPへ" onclick="jump()">
-  
   <script>
-  function jump() {
-  if(confirm("トップページに戻りますか？")==true)
-  location.href="https://www.google.com/?hl=ja";
-}
+    function modoru() {
+      history.back();
+    }
+
+    function susumu() {
+      history.forward();
+    }
+
+    function koshin() {
+      location.reload();
+    }
 
   </script>
+  
+  <input type="button"  value="戻る" onclick="modoru()">
+  <input type="button"  value="進む" onclick="susumu()">
+  <input type="button"  value="更新" onclick="koshin()">
+
+
+    
 </body>
 </html>

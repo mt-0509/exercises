@@ -1,13 +1,25 @@
 'use strict';
 
 {
-  // 自分
-  var nob = Object.create(null);
-  nob = {p:1}
-  console.log(nob);
+  let one = document.getElementById('one');
 
-  // 回答
-  const obj = Object.create({}, {p: {value: 1}});
-  console.log(obj.p);
+  one.addEventListener('click', () => {
+    one.style.backgroundColor = 'skyblue';
+  })
+
+  let two = document.getElementById('two');
+
+  function countUp() {
+    document.getElementById('two').innerText = ++count;
+  }
+  let count = 0;
+
+  two.addEventListener('click', () => {
+    
+    countUp();
+  })
+  
+  
 
 }
+

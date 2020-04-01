@@ -1,0 +1,41 @@
+.wrapper {
+  display: flex;
+  justify-content: space-around;
+}
+
+#one {
+  width: 250px;
+  height: 250px;
+  background-color: rgb(255, 192, 203);
+}
+
+#one p {
+  text-align: center;
+  line-height: 250px;
+}
+
+#two {
+  width: 250px;
+  height: 250px;
+  background-color: pink;
+}
+
+#two p {
+  text-align: center;
+  line-height: 250px;
+}
+
+#three {
+  width: 250px;
+  height: 250px;
+  background-color: pink;
+}
+
+#three p {
+  text-align: center;
+  line-height: 250px;
+}
+
+.rd {
+  background-color: red;
+}

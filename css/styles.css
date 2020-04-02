@@ -23,6 +23,7 @@
 #two p {
   text-align: center;
   line-height: 250px;
+  user-select: none;
 }
 
 #three {

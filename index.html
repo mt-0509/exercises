@@ -15,27 +15,11 @@
     <input type="checkbox" value="ハムスター">ハムスター<br>
     <input type="checkbox" value="熱帯魚">熱帯魚<br>
     <input type="checkbox" value="他">この中には無い<br>
-    <input type="button" value="確認" id="ch" onclick=boxCheck()><br>
+    <input type="button" value="確認" id="ch" ><br>
   </form>
   
-  <script >
-    function boxCheck() {
-    var str = "";
+  <script src="js/main.js">
 
-    for(i = 0; i < 6; i++) {
-      if(document.chbox.elements[i].checked) {
-        if(str != "") str = str + ",";
-
-        str = str + document.chbox.elements[i].value;
-      }
-    }
-
-    if(str == "") {
-      alert("どれか選択してください。");
-    } else {
-      alert(str + "が選択されました。");
-    }
-  }
   </script>  
 </body>
 </html>

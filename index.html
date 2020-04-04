@@ -7,42 +7,48 @@
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-  <form name="chbox">
-    <p>あなたの好きな動物は？（複数可）</p>
-    <input type="checkbox" value="イヌ">イヌ<br>
-    <input type="checkbox" value="ネコ">ネコ<br>
-    <input type="checkbox" value="ウサギ">ウサギ<br>
-    <input type="checkbox" value="ハムスター">ハムスター<br>
-    <input type="checkbox" value="熱帯魚">熱帯魚<br>
-    <input type="checkbox" value="他">この中には無い<br>
-    <input type="button" value="確認" onclick="boxCheck()">
+  <form name="radioB">
+    カナダの首都は？<br>
+    <input type="radio" name="Q1">オタワ<br>
+    <input type="radio" name="Q1">トロント<br>
+    <input type="radio" name="Q1">モントリオール<br>
+    <br>
+    スイスの首都は？<br>
+    <input type="radio" name="Q2">ジュネーブ<br>
+    <input type="radio" name="Q2">チューリッヒ<br>
+    <input type="radio" name="Q2">ベルン<br>
+    <br>
+    ドイツの首都は？<br>
+    <input type="radio" name="Q3">ハンブルク<br>
+    <input type="radio" name="Q3">ブレーメン<br>
+    <input type="radio" name="Q3">ベルリン<br>
+    <br>
+    スペインの首都は？<br>
+    <input type="radio" name="Q4">バルセロナ<br>
+    <input type="radio" name="Q4">マドリード<br>
+    <input type="radio" name="Q4">リスボン<br>
+    <br>
+    オーストラリアの首都は？<br>
+    <input type="radio" name="Q5">シドニー<br>
+    <input type="radio" name="Q5">メルボルン<br>
+    <input type="radio" name="Q5">キャンベラ<br>
+    <br>
+    <input type="button" value="採点" onclick="saiten()" />
     </form>
+    
   
   <script>
-    function noch() {
-      if(document.chbox.elements[5].checked) {
-        for(i = 0; i < 5; i++) {
-          document.chbox.elements[i].checked = false;
-        }
-      }
-    }
+    function saiten() {
+      let seikai = 0;
 
-    function boxCheck() {
-      noch();
+      let trueAns = [0, 5, 8, 10, 14];
 
-      let str = '';
-      for(i = 0; i < 6; i ++) {
-        if(document.chbox.elements[i].checked) {
-          if(str != '') str = str + ',';
-          str = str + document.chbox.elements[i].value;
-        }
+      for (let i = 0; i < 5; i++) {
+        if(document.radioB.elements[trueAns[i]].checked)
+        seikai++;
       }
-
-      if(str == '') {
-        alert('どれか選択してください。');
-      } else {
-        alert(str + 'が選択されました。');
-      }
+      
+      alert('あなたは'+ seikai*20+'点でした！');
     }
 
   </script>  

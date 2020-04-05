@@ -7,49 +7,29 @@
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-  <form name="radioB">
-    カナダの首都は？<br>
-    <input type="radio" name="Q1">オタワ<br>
-    <input type="radio" name="Q1">トロント<br>
-    <input type="radio" name="Q1">モントリオール<br>
-    <br>
-    スイスの首都は？<br>
-    <input type="radio" name="Q2">ジュネーブ<br>
-    <input type="radio" name="Q2">チューリッヒ<br>
-    <input type="radio" name="Q2">ベルン<br>
-    <br>
-    ドイツの首都は？<br>
-    <input type="radio" name="Q3">ハンブルク<br>
-    <input type="radio" name="Q3">ブレーメン<br>
-    <input type="radio" name="Q3">ベルリン<br>
-    <br>
-    スペインの首都は？<br>
-    <input type="radio" name="Q4">バルセロナ<br>
-    <input type="radio" name="Q4">マドリード<br>
-    <input type="radio" name="Q4">リスボン<br>
-    <br>
-    オーストラリアの首都は？<br>
-    <input type="radio" name="Q5">シドニー<br>
-    <input type="radio" name="Q5">メルボルン<br>
-    <input type="radio" name="Q5">キャンベラ<br>
-    <br>
-    <input type="button" value="採点" onclick="saiten()" />
-    </form>
+  <form name="selbox">
+    <p>好きなプロ野球リーグは？</p>
+    <!-- <select name="league" onchange="teamSet()"> -->
+    <select name="league" id="change">
+    <option value="">*リーグ選択</option>
+    <option value="">セ・リーグ</option>
+    <option value="">パ・リーグ</option>
+    </select>
     
+    <p>好きなチームは？</p>
+    <select name="team">
+    <option value="">*チーム選択</option>
+    <option value=""></option>
+    <option value=""></option>
+    <option value=""></option>
+    <option value=""></option>
+    <option value=""></option>
+    <option value=""></option>
+    </select>
+    </form>
   
-  <script>
-    function saiten() {
-      let seikai = 0;
+  <script src="js/main.js">
 
-      let trueAns = [0, 5, 8, 10, 14];
-
-      for (let i = 0; i < 5; i++) {
-        if(document.radioB.elements[trueAns[i]].checked)
-        seikai++;
-      }
-      
-      alert('あなたは'+ seikai*20+'点でした！');
-    }
 
   </script>  
 </body>

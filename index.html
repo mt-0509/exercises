@@ -7,26 +7,20 @@
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-  <form name="fcset">
-    <input type="text" value="text1">
-    <input type="button" value="合わせる" onclick="fc(0)">
-    <input type="button" value="外す" onclick="bl(0)"><br>
-
-    <input type="text" value="text2">
-    <input type="button" value="合わせる" onclick="fc(3)">
-    <input type="button" value="外す" onclick="bl(3)"><br>
+  <form name="keisan">
+    <input type="text" value="3">+
+    <input type="text" value="5"><br>
+    <input type="button" value="計算" onclick="tasu()">
   </form>
 
   <script>
-    // フォーカスを合わせる関数
-    function fc(num) {
-      document.fcset.elements[num].focus();
-      document.fcset.elements[num].select();
-    }
+    function tasu() {
+      // テクストボックスの数値を変数に格納する
+      let num1 =parseInt(document.keisan.elements[0].value); 
+      let num2 =parseInt(document.keisan.elements[1].value);
 
-    // フォーカスを外す関数
-    function bl(num) {
-      document.fcset.elements[num].blur();
+      // 計算結果をアラートで表示
+      alert(num1+num2);
     }
 
   </script>  

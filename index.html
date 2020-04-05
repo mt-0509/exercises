@@ -7,27 +7,28 @@
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-  <form name="send" >
-    お名前:<input type="text" value="" onchange="wupBtn()"><br>
-    感 想:<textarea rows="2" cols="20" onchange="wupBtn()"></textarea><br>
-    <input type="button" value="送信"disabled>
+  <form name="fcset">
+    <input type="text" value="text1">
+    <input type="button" value="合わせる" onclick="fc(0)">
+    <input type="button" value="外す" onclick="bl(0)"><br>
+
+    <input type="text" value="text2">
+    <input type="button" value="合わせる" onclick="fc(3)">
+    <input type="button" value="外す" onclick="bl(3)"><br>
   </form>
-  
+
   <script>
-    function wupBtn() {
-      // 名前と感想の欄のテキストを変数に代入する
-      let namae = document.send.elements[0].value;
-      let kanso = document.send.elements[1].value;
-  
-      // 名前もしくは乾燥欄のどちらかが空かチェック
-      if ( ( namae == "")||( kanso == "") )
-      {
-        // どちらか空であれば、ボタンを押せなくする
-        document.send.elements[2].disabled = true;
-      }else{
-        document.send.elements[2].disabled = false;
-      }
+    // フォーカスを合わせる関数
+    function fc(num) {
+      document.fcset.elements[num].focus();
+      document.fcset.elements[num].select();
     }
+
+    // フォーカスを外す関数
+    function bl(num) {
+      document.fcset.elements[num].blur();
+    }
+
   </script>  
 </body>
 </html>

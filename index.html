@@ -7,30 +7,27 @@
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-  <form name="selbox">
-    <p>好きなプロ野球リーグは？</p>
-    <!-- <select name="league" onchange="teamSet()"> -->
-    <select name="league" id="change">
-    <option value="">*リーグ選択</option>
-    <option value="">セ・リーグ</option>
-    <option value="">パ・リーグ</option>
-    </select>
-    
-    <p>好きなチームは？</p>
-    <select name="team">
-    <option value="">*チーム選択</option>
-    <option value=""></option>
-    <option value=""></option>
-    <option value=""></option>
-    <option value=""></option>
-    <option value=""></option>
-    <option value=""></option>
-    </select>
-    </form>
+  <form name="send" >
+    お名前:<input type="text" value="" onchange="wupBtn()"><br>
+    感 想:<textarea rows="2" cols="20" onchange="wupBtn()"></textarea><br>
+    <input type="button" value="送信"disabled>
+  </form>
   
-  <script src="js/main.js">
-
-
+  <script>
+    function wupBtn() {
+      // 名前と感想の欄のテキストを変数に代入する
+      let namae = document.send.elements[0].value;
+      let kanso = document.send.elements[1].value;
+  
+      // 名前もしくは乾燥欄のどちらかが空かチェック
+      if ( ( namae == "")||( kanso == "") )
+      {
+        // どちらか空であれば、ボタンを押せなくする
+        document.send.elements[2].disabled = true;
+      }else{
+        document.send.elements[2].disabled = false;
+      }
+    }
   </script>  
 </body>
 </html>

@@ -7,19 +7,16 @@
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-  <form name="ROOT">
-    <input type="text" value="2">
-    <input type="button" value="平方根" onclick="root()">
+  <form>
+    <input type="button" value="円周率" onclick="pai()">
+    
     
   </form>
 
   <script>
-    function root() {
-      let num1 = parseInt(document.ROOT.elements[0].value);
-
-      alert(Math.sqrt(num1));
+    function pai() {
+      alert(Math.PI);
     }
-    
   </script>  
 </body>
 </html>

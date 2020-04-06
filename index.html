@@ -7,22 +7,22 @@
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-  <form name="keisan">
-    <input type="text" value="3">+
-    <input type="text" value="5"><br>
-    <input type="button" value="計算" onclick="tasu()">
+  <form name="bekijo">
+    <input type="text" value="5">基数<br>
+    <input type="text" value="2">指数<br>
+    <input type="button" value="計算" onclick="beki()">
   </form>
 
   <script>
-    function tasu() {
-      // テクストボックスの数値を変数に格納する
-      let num1 =parseInt(document.keisan.elements[0].value); 
-      let num2 =parseInt(document.keisan.elements[1].value);
+    function beki() {
 
-      // 計算結果をアラートで表示
-      alert(num1+num2);
+      // 基数と指数をそれぞれ数字に変換して変数に格納
+      let num1 = parseInt(document.bekijo.elements[0].value);
+      let num2 = parseInt(document.bekijo.elements[1].value);
+
+      //べき乗を求めてアラートで表示
+      alert(Math.pow(num1,num2));
     }
-
   </script>  
 </body>
 </html>

@@ -7,22 +7,19 @@
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-  <form name="bekijo">
-    <input type="text" value="5">基数<br>
-    <input type="text" value="2">指数<br>
-    <input type="button" value="計算" onclick="beki()">
+  <form name="ROOT">
+    <input type="text" value="2">
+    <input type="button" value="平方根" onclick="root()">
+    
   </form>
 
   <script>
-    function beki() {
+    function root() {
+      let num1 = parseInt(document.ROOT.elements[0].value);
 
-      // 基数と指数をそれぞれ数字に変換して変数に格納
-      let num1 = parseInt(document.bekijo.elements[0].value);
-      let num2 = parseInt(document.bekijo.elements[1].value);
-
-      //べき乗を求めてアラートで表示
-      alert(Math.pow(num1,num2));
+      alert(Math.sqrt(num1));
     }
+    
   </script>  
 </body>
 </html>

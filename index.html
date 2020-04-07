@@ -7,25 +7,34 @@
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-  <form name="marume">
-    <input type="text" value="3.14159">:丸める数字<br>
-    <input type="text" value="">:四捨五入<br>
-    <input type="text" value="">:切り上げ<br>
-    <input type="text" value="">:切り捨て<br>
-    <input type="button" value="計算" onclick="keisan()">
+  <form name="marume2">
+    <input type="text" value="12345.6789">:丸める数字<br>
+    <input type="text" value="">:小数2桁に丸める<br>
+    <input type="text" value="">:1000単位に丸める<br>
+    <input type="button" value="計算" onclick="keisan2()">
   </form>
   
 
   <script>
-    function keisan() {
+    function keisan2() {
 
       // 最初のテキストボックスの値を数字に変換
-      let num = parseFloat(document.marume.elements[0].value);
+      let num = parseFloat(document.marume2.elements[0].value);
 
-      // 順に、四捨五入・切り上げ・切り捨てを求める
-      document.marume.elements[1].value = Math.round(num);
-      document.marume.elements[2].value = Math.ceil(num);
-      document.marume.elements[3].value = Math.floor(num);
+      // 小数点の位置を2桁右に移動する(1234567.89にする)
+      let num1 = num * 100;
+
+      // 四捨五入した後、小数点の位置を元に戻す
+      num1 = Math.round(num1)/100;
+
+      // 2番目のテキストボックスに表示する
+      document.marume2.elements[1].value = num1;
+
+
+      // 小数点の位置を左に3桁移動して計算し、元に戻す
+      let num2 = num/1000;
+      num2 = Math.round(num2)*1000;
+      document.marume2.elements[2].value = num2;
     }
     
   </script>  

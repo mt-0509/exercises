@@ -7,36 +7,44 @@
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-  <form name="marume2">
-    <input type="text" value="12345.6789">:丸める数字<br>
-    <input type="text" value="">:小数2桁に丸める<br>
-    <input type="text" value="">:1000単位に丸める<br>
-    <input type="button" value="計算" onclick="keisan2()">
-  </form>
+  <body onload="mondai()">
+    <form name="quiz">
+    <input type="text" value="">
+    <input type="button" value="赤" onclick="push(0)">
+    <input type="button" value="青" onclick="push(1)">
+    <input type="button" value="黄" onclick="push(2)">
+    <input type="button" value="緑" onclick="push(3)">
+    <input type="button" value="白" onclick="push(4)">
+    </form>
   
 
   <script>
-    function keisan2() {
+    // 色名の英単語を入れる
+    let col = ["red", "blue", "yellow", "green", "white"];
 
-      // 最初のテキストボックスの値を数字に変換
-      let num = parseFloat(document.marume2.elements[0].value);
+    // 乱数を入れる変数
+    let rnd;
 
-      // 小数点の位置を2桁右に移動する(1234567.89にする)
-      let num1 = num * 100;
+    // テキストボックスに問題文(色名)を表示する関数
+    function mondai() {
 
-      // 四捨五入した後、小数点の位置を元に戻す
-      num1 = Math.round(num1)/100;
-
-      // 2番目のテキストボックスに表示する
-      document.marume2.elements[1].value = num1;
-
-
-      // 小数点の位置を左に3桁移動して計算し、元に戻す
-      let num2 = num/1000;
-      num2 = Math.round(num2)*1000;
-      document.marume2.elements[2].value = num2;
+      // 0~4までの乱数を発生させる
+      rnd = Math.floor(Math.random() * 5);
+      document.quiz.elements[0].value = col[rnd];
     }
-    
+
+    // 正誤判定関数
+    function push(num) {
+      let n = parseInt(num);
+
+    // 正解なら次の問題を表示、間違っていたらアラートを表示する
+    if (n == rnd) {
+      mondai();
+    } else {
+      alert("違います！");
+    }
+    }
+
   </script>  
 </body>
 </html>

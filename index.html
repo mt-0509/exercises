@@ -7,30 +7,21 @@
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-  <form name="math">
-    <input type="text" name="" value="255">：元の数字<br>
-    <input type="text" name="" value="">：2進数<br>
-    <input type="text" name="" value="">：16進数<br>
-    <input type="button" value="変換" onclick="sinsu()"><br>
+  <form name="math2">
+    <input type="text" value="11111111">：2進数<br>
+    <input type="text" value="">：10進数<br>
+    <input type="button" value="10進数に変換" onclick="jusinsu()">
   </form>
-  
-  
 
   <script>
+    function jusinsu() {
 
-    function sinsu() {
+      // 最初のテキストボックスの文字列を変数suji2に格納
+      let suji2 = document.math2.elements[0].value;
 
-      // 「元の数字」欄の文字を数字に変換
-      let suji = parseInt(document.math.elements[0].value);
-
-      // 2進数に変換して2番目のテキストボックスに表示
-      document.math.elements[1].value = suji.toString(2);
-
-      // 16進数に変換して3番目のテキストボックスに表示
-      document.math.elements[2].value = suji.toString(16);
+      // 10進数にして2番目のテキストボックスに表示
+      document.math2.elements[1].value = parseInt(suji2, 2);
     }
-
-
   </script>  
 </body>
 </html>

@@ -7,42 +7,41 @@
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-  <body onload="mondai()">
-    <form name="quiz">
+  <form name="quiz">
     <input type="text" value="">
-    <input type="button" value="赤" onclick="push(0)">
-    <input type="button" value="青" onclick="push(1)">
-    <input type="button" value="黄" onclick="push(2)">
-    <input type="button" value="緑" onclick="push(3)">
-    <input type="button" value="白" onclick="push(4)">
-    </form>
+    <input type="button" value="出題" onclick="mondai()">
+  </form>
   
 
   <script>
-    // 色名の英単語を入れる
+    
+    // カラー名を収納する配列colの作成
     let col = ["red", "blue", "yellow", "green", "white"];
 
-    // 乱数を入れる変数
-    let rnd;
+    // 配列の大きさに合わせて適当な回数繰り返す
+    for (i = 0; i < 20; i++) {
+      // 0~4までの乱数を作成し、変数Rndに格納する
+      let rnd = Math.floor(Math.random() * 5);
+    
+    let str1 = col[0]; // 配列colの最初の要素
+    let str2 = col[rnd]; // 配列colの乱数で決定した要素
 
-    // テキストボックスに問題文(色名)を表示する関数
+    // 配列の各要素を入れ替える
+    col[rnd] = str1;
+    col[0] = str2;
+    }
+
+    let cnt = 0; // 何問出題したかカウントする変数
+
     function mondai() {
-
-      // 0~4までの乱数を発生させる
-      rnd = Math.floor(Math.random() * 5);
-      document.quiz.elements[0].value = col[rnd];
-    }
-
-    // 正誤判定関数
-    function push(num) {
-      let n = parseInt(num);
-
-    // 正解なら次の問題を表示、間違っていたらアラートを表示する
-    if (n == rnd) {
-      mondai();
-    } else {
-      alert("違います！");
-    }
+      if( cnt < 5) {
+        document.quiz.elements[0].value = col[cnt];
+        cnt++;
+      } else {
+        // 全問(5問)終了したら、そのことを表示してボタンを押せなくする
+        document.quiz.elements[0].value = "全問終了";
+        document.quiz.elements[1].disabled = true;
+      }
     }
 
   </script>  

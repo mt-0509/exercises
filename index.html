@@ -7,42 +7,29 @@
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-  <form name="quiz">
-    <input type="text" value="">
-    <input type="button" value="出題" onclick="mondai()">
+  <form name="math">
+    <input type="text" name="" value="255">：元の数字<br>
+    <input type="text" name="" value="">：2進数<br>
+    <input type="text" name="" value="">：16進数<br>
+    <input type="button" value="変換" onclick="sinsu()"><br>
   </form>
+  
   
 
   <script>
-    
-    // カラー名を収納する配列colの作成
-    let col = ["red", "blue", "yellow", "green", "white"];
 
-    // 配列の大きさに合わせて適当な回数繰り返す
-    for (i = 0; i < 20; i++) {
-      // 0~4までの乱数を作成し、変数Rndに格納する
-      let rnd = Math.floor(Math.random() * 5);
-    
-    let str1 = col[0]; // 配列colの最初の要素
-    let str2 = col[rnd]; // 配列colの乱数で決定した要素
+    function sinsu() {
 
-    // 配列の各要素を入れ替える
-    col[rnd] = str1;
-    col[0] = str2;
+      // 「元の数字」欄の文字を数字に変換
+      let suji = parseInt(document.math.elements[0].value);
+
+      // 2進数に変換して2番目のテキストボックスに表示
+      document.math.elements[1].value = suji.toString(2);
+
+      // 16進数に変換して3番目のテキストボックスに表示
+      document.math.elements[2].value = suji.toString(16);
     }
 
-    let cnt = 0; // 何問出題したかカウントする変数
-
-    function mondai() {
-      if( cnt < 5) {
-        document.quiz.elements[0].value = col[cnt];
-        cnt++;
-      } else {
-        // 全問(5問)終了したら、そのことを表示してボタンを押せなくする
-        document.quiz.elements[0].value = "全問終了";
-        document.quiz.elements[1].disabled = true;
-      }
-    }
 
   </script>  
 </body>

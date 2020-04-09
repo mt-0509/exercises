@@ -7,21 +7,24 @@
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-  <form name="math2">
-    <input type="text" value="11111111">：2進数<br>
-    <input type="text" value="">：10進数<br>
-    <input type="button" value="10進数に変換" onclick="jusinsu()">
-  </form>
 
   <script>
-    function jusinsu() {
+    document.write("文字を装飾します<br>");
+    document.write("大きくする".big()+"<br>");
+    document.write("小さくする".small()+"<br>");
+    document.write("太字にする".bold()+"<br>");
+    document.write("斜体にする".italics()+"<br>");
+    document.write("取り消し線を付ける".strike()+"<br>");
+    document.write("固定幅フォントにする".fixed()+"<br>");
+    document.write("下付き文字にする".sub()+"<br>");
+    document.write("上付き文字にする".sup()+"<br>");
+    document.write("文字色を指定する".fontcolor("red")+"<br>");
 
-      // 最初のテキストボックスの文字列を変数suji2に格納
-      let suji2 = document.math2.elements[0].value;
+    let str = "複数の装飾";
 
-      // 10進数にして2番目のテキストボックスに表示
-      document.math2.elements[1].value = parseInt(suji2, 2);
-    }
+    document.write(str.fontcolor("green").big().bold());
+    document.write("を施した文字列");
+    
   </script>  
 </body>
 </html>

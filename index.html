@@ -9,22 +9,20 @@
 <body>
 
   <script>
-    document.write("文字を装飾します<br>");
-    document.write("大きくする".big()+"<br>");
-    document.write("小さくする".small()+"<br>");
-    document.write("太字にする".bold()+"<br>");
-    document.write("斜体にする".italics()+"<br>");
-    document.write("取り消し線を付ける".strike()+"<br>");
-    document.write("固定幅フォントにする".fixed()+"<br>");
-    document.write("下付き文字にする".sub()+"<br>");
-    document.write("上付き文字にする".sup()+"<br>");
-    document.write("文字色を指定する".fontcolor("red")+"<br>");
-
-    let str = "複数の装飾";
-
-    document.write(str.fontcolor("green").big().bold());
-    document.write("を施した文字列");
     
+    // 2進数文字列
+    let data = "1010101";
+
+    // データを格納する配列を作成する
+    let flg = [];
+
+    // 文字列変数dataの文字数をカウントし、変数cntに格納する
+    let cnt = data.length;
+
+    // for文を使って配列に格納する
+    for (let i = 0;i < cnt; i++) {
+      flg[i] = data.charAt(i);
+    }
   </script>  
 </body>
 </html>

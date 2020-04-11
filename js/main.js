@@ -1,15 +1,11 @@
 'use strict';
 
 {
-  let array = ['e', 'a', 'k', 'B', 'c'];
+  let array = [20, 100, 3, 35, 0];
 
   // 比較関数
   function compareFunc(a,b) {
-    if(a.toUpperCase() > b.toUpperCase()) {
-      return 1;
-    } else {
-      return -1;
-    }
+    return b - a;
   }
 
   array.sort(compareFunc);

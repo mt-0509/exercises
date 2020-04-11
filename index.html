@@ -8,56 +8,6 @@
 </head>
 <body>
 
-  <script>
-
-    // 長い文字列を配列に格納
-    var str = [
-      "文字を検索するには、##indexOf()%%を使います。",
-      "括弧内には##検索文字列%%と、##検索開始位置%%を指定します。",
-      "検索文字が存在すると、##文字の位置%%を返します。",
-      "検索文字が存在しないと、##-1%%を返します。"
-    ];
-
-    // 配列の文字列を順番に表示
-    for (let i = 0; i < 4; i++) {
-      // while文を使って無限ループにする
-      while(true) {
-        //「##」を検索し、文字位置を変数numに代入
-        let num = str[i].indexOf("##",0);
-
-        // もし「##」が無ければ、無限ループから出る
-        if(num == -1) break;
-
-        let tag = "<strong>";
-
-        // 「##」の前まで切り取る
-        let str1 = str[i].substring(0,num);
-
-        // 「##」の後ろを切り取る
-        let str2 = str[i].substring(num+2,str[i].length);
-
-        // 「##」を変数tagに代入したHTMLタグに置き換える
-        str[i] = str1 + tag + str2;
-      }
-
-      // 終了タグに関しても同様の処理をする
-      while(true) {
-        let num = str[i].indexOf("%%",0);
-        if(num == -1) break;
-        let tag = "</strong>";
-        let str1 = str[i].substring(0,num);
-        let str2 = str[i].substring(num+2,str[i].length);
-        str[i] = str1 + tag + str2;
-      }
-
-      // HTMLに置き換えられた文字列を表示
-      document.write(str[i]);
-    } 
-
-
-      
-
-
-  </script>  
+<script src="js/main.js"></script>  
 </body>
 </html>

@@ -7,57 +7,57 @@
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-  <form name="pan">
-    <select name="sentaku" onchange="choice()">
-      <option>商品を選択してください</option>
-      <option>メロンパン</option>
-      <option>あんぱん</option>
-      <option>ウィンナーロール</option>
-      <option>ハムエッグ</option>
-      <option>ミックスサンド</option>
-    </select>
-    <br>
-    商品:<input type="text" name="item" value=""><br>
-    種類:<input type="text" name="type" value=""><br>
-    価格:<input type="text" name="price" value=""><br>
-  </form>
 
   <script>
-    
-    // 商品データを配列breadに入れる
-    let bread = [
-      "",
-      "メロンパン/菓子パン/130円",
-      "あんぱん/菓子パン/100円",
-      "ウィンナーロール/惣菜パン/170円",
-      "ハムエッグ/惣菜パン/140円",
-      "ミックスサンド/サンドウィッチ/200円"
+
+    // 長い文字列を配列に格納
+    var str = [
+      "文字を検索するには、##indexOf()%%を使います。",
+      "括弧内には##検索文字列%%と、##検索開始位置%%を指定します。",
+      "検索文字が存在すると、##文字の位置%%を返します。",
+      "検索文字が存在しないと、##-1%%を返します。"
     ];
 
-    function choice() {
+    // 配列の文字列を順番に表示
+    for (let i = 0; i < 4; i++) {
+      // while文を使って無限ループにする
+      while(true) {
+        //「##」を検索し、文字位置を変数numに代入
+        let num = str[i].indexOf("##",0);
 
-      // データを分割して格納する配列painの作成
-      let pain = [];
+        // もし「##」が無ければ、無限ループから出る
+        if(num == -1) break;
 
-      // セレクトボックスの最初のオプションを選択したか確認
-      if (document.pan.sentaku.selectedIndex !=0) {
-        // 選択された商品データを変数strに入れる
-        let str = bread[document.pan.sentaku.selectedIndex];
+        let tag = "<strong>";
 
-        // 商品データの各要素を「/」で分離し、配列painに格納する
-        pain = str.split('/');
+        // 「##」の前まで切り取る
+        let str1 = str[i].substring(0,num);
 
-        // テキストボックスの該当箇所にデータを表示する
-        document.pan.item.value = pain[0];
-        document.pan.type.value = pain[1];
-        document.pan.price.value = pain[2];
-      } else {
-        // 「商品を選択してください」を選んだ時の処理
-        for(let i = 1; i <= 3; i++) {
-          document.pan.elements[i].value = "";
-        }
+        // 「##」の後ろを切り取る
+        let str2 = str[i].substring(num+2,str[i].length);
+
+        // 「##」を変数tagに代入したHTMLタグに置き換える
+        str[i] = str1 + tag + str2;
       }
-    }
+
+      // 終了タグに関しても同様の処理をする
+      while(true) {
+        let num = str[i].indexOf("%%",0);
+        if(num == -1) break;
+        let tag = "</strong>";
+        let str1 = str[i].substring(0,num);
+        let str2 = str[i].substring(num+2,str[i].length);
+        str[i] = str1 + tag + str2;
+      }
+
+      // HTMLに置き換えられた文字列を表示
+      document.write(str[i]);
+    } 
+
+
+      
+
+
   </script>  
 </body>
 </html>

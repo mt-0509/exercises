@@ -1,17 +1,18 @@
 'use strict';
 
 {
-  let array = [20, 100, 3, 35, 0];
+  // 文字であることを確認した
+  let a = '10';
+  let kata =  typeof a;
+  console.log(kata);
 
-  // 比較関数
-  function compareFunc(a,b) {
-    return b - a;
-  }
+  // 数字ではないことを確認した
+  let check = isNaN(a);
+  console.log(check);
 
-  array.sort(compareFunc);
-  console.log(array);
-      
-  
+  // 文字を数字に変換した
+  let result = a.toString();
+  console.log(result);
 }
 
 

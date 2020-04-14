@@ -7,49 +7,10 @@
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-  <form name="tm">
-    <input type="text" value="">
-    <input type="button" value="ON" onclick="tmstr()">
-    <input type="button" value="OFF" onclick="tmrOff(0)"><br>
-    <input type="text" value="">
-    <input type="button" value="ON" onclick="tmrOn(3)">
-    <input type="button" value="OFF" onclick="tmrOff(3)"><br>
-  </form>
+  
 
 <script>
-  // タイマーを格納する変数の宣言
-  let timer1, timer2;
-
-  // setInterval()を使ったタイマーの起動関数
-  function tmstr() {
-    timer1 = setInterval("tmrOn(0)", 1000);
-  }
-
-  function tmrOn(num) {
-    // 引数を数字に変換
-    let n = parseInt(num);
-
-    // 0~9までの乱数を取得して変数に代入
-    let rnd = Math.floor(Math.random()*10);
-
-    // テキストボックスに連続して表示
-    let str = document.tm.elements[n].value;
-    document.tm.elements[n].value = str+rnd;
-
-    // 引数が3の時はsetTimeout()を使って繰り返す
-    if (n == 3) {
-      timer2 = setTimeout("tmrOn(3)", 1000);
-    }
-  }
-
-  function tmrOff(num) {
-    // タイマーを停止する
-    if(num == 0) {
-      clearInterval(timer1);
-    } else {
-      clearTimeout(timer2);
-    }
-  }
+  
   
   
 

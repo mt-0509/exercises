@@ -7,10 +7,62 @@
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
+  <img src="img/kuro.png" id="sd" width="320" height="240" alt=""><br>
+
+  <form name="slide">
+    <input type="button" value="開始" onclick="slidesw()">
+  </form>
   
 
 <script>
-  
+  // 画像を格納する配列の作成
+  let image = [];
+
+  // 配列の各要素を画像に特化して、そのパスを記入
+  image[0] = new Image();
+  image[0].src = "img/0.png";
+  image[1] = new Image();
+  image[1].src = "img/1.png";
+  image[2] = new Image();
+  image[2].src = "img/2.png";
+  image[3]=new Image();
+  image[3].src="img/3.png";
+  image[4]=new Image();
+  image[4].src="img/4.png";
+  image[5]=new Image();
+  image[5].src="img/5.png";
+  image[6]=new Image();
+  image[6].src="img/6.png";
+  image[7]=new Image();
+  image[7].src="img/7.png";
+
+  let cnt = 0;
+
+  function slidesw()  {
+
+    // getElementByIdが使える場合のみ後の処理をする
+    if(document.getElementById) {
+      document.slide.elements[0].disabled = true;
+
+      // id属性が「sd」の画像タグの画像パスを切り替える
+      document.getElementById("sd").src = image[cnt].src;
+
+      // 一つ画像を表示したらカウント用変数cntの値を+1にする
+      cnt++;
+
+      // 画像が最後まで表示されたか確認
+      if (cnt <= 7) {
+        // まだ表示されていなければ、setTimeout()で次の画像を表示する
+        let timer1 = setTimeout("slidesw()", 300);
+      } else {
+        // 全て表示されていたら、ボタンを押せるようにして、タイマーを停止する
+        cnt = 0;
+        document.slide.elements[0].disabled = false;
+        clearTimeout(timer1);
+      }
+    }
+  }
+
   
   
 

@@ -7,71 +7,24 @@
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-  <form name="timer">
-    <input type="text" value="">分
-    <input type="text" value="">秒<br>
-    <input type="button" value="スタート" onclick="cntStart()">
-    <input type="button" value="ストップ" onclick="cntStop()">
-  </form>
   
   
 
 <script>
-  let timer1; //タイマーを格納する変数(タイマーID)の宣言
 
-  //カウントダウン関数を1000ミリ秒毎に呼び出す関数
-  function cntStart() {
-    document.timer.elements[2].disabled = true;
-    timer1 = setInterval("countDown()", 1000);
-  }
+  // 今日の日付データを変数hidukeに格納
+  let hiduke = new Date();
 
-  //タイマー停止関数
-  function cntStop() {
-    document.timer.elements[2].disabled = false;
-    clearInterval(timer1);
-  }
+  // 年・月・日・曜日を取得する
+  let year = hiduke.getFullYear();
+  let month = hiduke.getMonth()+1;
+  let week = hiduke.getDay();
+  let day = hiduke.getDate();
 
-  //カウントダウン関数
-  function countDown() {
-    let min = document.timer.elements[0].value;
-    let sec = document.timer.elements[1].value;
+  let yobi = new Array("日","月","火","水","木","金","土");
 
-    if((min=="")&&(sec=="")) {
-      alert("時刻を設定してください！");
-      reSet();
-    } else {
-      if(min=="") min=0;
-      min=parseInt(min);
+  document.write("西暦"+year+"年"+month+"月"+day+"日"+yobi[week]+"曜日");
 
-      if(sec=="") sec=0;
-      sec=parseInt(sec);
-
-      tmWrite(min*60+sec-1);
-    }
-  }
-
-  //残り時間を書き出す関数
-  function tmWrite(int) {
-    int = parseInt(int);
-
-    if(int<=0) {
-      reSet();
-      alert("時間です！");
-    } else {
-      //残り分数はintを60で割って切り捨てる
-      document.timer.elements[0].value=Math.floor(int/60);
-      //残り秒数はintを60で割って余り
-      document.timer.elements[1].value = int%60;
-    }
-  }
-
-  //フォームを初期状態に戻す(リセット)関数
-  function reSet() {
-    document.timer.elements[0].value = "0";
-    document.timer.elements[1].value = "0";
-    document.timer.elements[2].disabled = false;
-    clearInterval(timer1);
-  }
   
 </script>
 

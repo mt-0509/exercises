@@ -6,25 +6,62 @@
   <title>exercises</title>
   <link rel="stylesheet" href="css/styles.css">
 </head>
-<body>
+<body onload="sekaiTokei()">
+
+  <form name="wrdClock">
+    <select name="city">
+      <option value="0">東京・ソウル</option>
+      <option value="1">グラム・フィジー・シドニー</option>
+      <option value="-19">ハワイ</option>
+    </select>
+    <br>
+    <input type="text" name="wrdTime" value="" size="30">
+  </form>
   
-  
+   
 
 <script>
+
+  //1. 1秒毎に時刻を表示する
+  function sekaiTokei() {
+    setInterval("timeSet()", 1000);
+  }
+
+  function timeSet() {
+
+    //2. optionタグのvalue値に設定した時差を取得する
+    let num = document.wrdClock.city.selectedIndex;
+    let jisa = parseInt(document.wrdClock.city.options[num].value);
+    
+    //3. 日本の現在の日付データを求め数値にする
+    let japan = (new Date()).getTime();
+
+    //4. 時差を加減して、日付データに戻す
+    let jikan = new Date(japan + jisa*60*60*1000);
+
+    // 日付と時刻を求める
+    let year = jikan.getFullYear();
+    let month = jikan.getMonth()+1;
+    let day = jikan.getDate();
+    let hour = jikan.getHours();
+    let minu = jikan.getMinutes();
+    let sec = jikan.getSeconds();
+
+    //5. 時間表示の修正(10未満は前に0を付ける)
+    if (hour < 10) hour = "0"+hour;
+    if (minu < 10) minu = "0"+minu;
+    if (sec < 10) sec = "0"+sec;
+
+    // 日付と時刻を表示する
+    let wDate = year+"年"+month+"月"+day+"日";
+    let wTime = hour+":"+minu+":"+sec;
+    document.wrdClock.wrdTime.value = wDate + " " + wTime;
+
+  }
+
   
-  // 今日の日付データを作成する
-  let today = new Date();
-  let year1 = today.getFullYear();
+  
 
-  // 来年1月1日の日付データを作成する
-  let year2 = year1+1;
-  let newYear = new Date(year2+"/1/1");
-
-  // 来年1月1日-今日のミリ秒を計算し、日にちに換算する
-  let day = Math.ceil((newYear-today)/(60*60*24*1000));
-
-  // 表示
-  document.write("来年まであと"+day+"日です。");
 </script>
 
 </body>

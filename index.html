@@ -11,16 +11,20 @@
   
 
 <script>
-  // 時刻データを取得して変数jikanに格納する
-  let jikan = new Date();
-
-  // 時・分・秒を取得する
-  let hour = jikan.getHours();
-  let minute = jikan.getMinutes();
-  let second = jikan.getSeconds();
-
-  document.write(hour+"時"+minute+"分"+second+"秒");
   
+  // 今日の日付データを作成する
+  let today = new Date();
+  let year1 = today.getFullYear();
+
+  // 来年1月1日の日付データを作成する
+  let year2 = year1+1;
+  let newYear = new Date(year2+"/1/1");
+
+  // 来年1月1日-今日のミリ秒を計算し、日にちに換算する
+  let day = Math.ceil((newYear-today)/(60*60*24*1000));
+
+  // 表示
+  document.write("来年まであと"+day+"日です。");
 </script>
 
 </body>

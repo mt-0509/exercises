@@ -10,9 +10,9 @@
 
   <form name="wrdClock">
     <select name="city">
-      <option value="0">東京・ソウル</option>
-      <option value="1">グラム・フィジー・シドニー</option>
-      <option value="-19">ハワイ</option>
+      <option value="9">東京・ソウル</option>
+      <option value="10">グラム・フィジー・シドニー</option>
+      <option value="-10">ハワイ</option>
     </select>
     <br>
     <input type="text" name="wrdTime" value="" size="30">
@@ -22,22 +22,25 @@
 
 <script>
 
-  //1. 1秒毎に時刻を表示する
+  // 1秒毎に時刻を表示する
   function sekaiTokei() {
     setInterval("timeSet()", 1000);
   }
 
   function timeSet() {
 
-    //2. optionタグのvalue値に設定した時差を取得する
+    // optionタグのvalue値に設定した時差を取得する
     let num = document.wrdClock.city.selectedIndex;
     let jisa = parseInt(document.wrdClock.city.options[num].value);
     
-    //3. 日本の現在の日付データを求め数値にする
-    let japan = (new Date()).getTime();
+    // 日本の現在の日付データを求め数値にする
+    let here = (new Date()).getTime();
 
-    //4. 時差を加減して、日付データに戻す
-    let jikan = new Date(japan + jisa*60*60*1000);
+    // グリニッジ標準時を求める
+    let gmt = here + (new Date()).getTimezoneOffset()*60*1000;
+
+    // 時差を加減して、日付データに戻す
+    let jikan = new Date(gmt + jisa*60*60*1000);
 
     // 日付と時刻を求める
     let year = jikan.getFullYear();
@@ -47,7 +50,7 @@
     let minu = jikan.getMinutes();
     let sec = jikan.getSeconds();
 
-    //5. 時間表示の修正(10未満は前に0を付ける)
+    // 時間表示の修正(10未満は前に0を付ける)
     if (hour < 10) hour = "0"+hour;
     if (minu < 10) minu = "0"+minu;
     if (sec < 10) sec = "0"+sec;

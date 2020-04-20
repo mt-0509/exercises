@@ -6,65 +6,23 @@
   <title>exercises</title>
   <link rel="stylesheet" href="css/styles.css">
 </head>
-<body onload="sekaiTokei()">
+<form>
+  <input type="button" value="テキスト" onclick="reWrite(0)">
+  <input type="button" value="HTMLタグ" onclick="reWrite(1)">
+</form>
 
-  <form name="wrdClock">
-    <select name="city">
-      <option value="9">東京・ソウル</option>
-      <option value="10">グラム・フィジー・シドニー</option>
-      <option value="-10">ハワイ</option>
-    </select>
-    <br>
-    <input type="text" name="wrdTime" value="" size="30">
-  </form>
-  
-   
+<div id="str">このタグの中身を書き換えます。</div>
 
 <script>
-
-  // 1秒毎に時刻を表示する
-  function sekaiTokei() {
-    setInterval("timeSet()", 1000);
+  function reWrite(num) {
+    if (document.getElementById) {
+      if (num == 0) {
+        document.getElementById("str").textContent = "<b>テキスト</b>の書換え";
+      } else {
+        document.getElementById("str").innerHTML = "<b>タグ</b>を含む書換え";
+      }
+    }
   }
-
-  function timeSet() {
-
-    // optionタグのvalue値に設定した時差を取得する
-    let num = document.wrdClock.city.selectedIndex;
-    let jisa = parseInt(document.wrdClock.city.options[num].value);
-    
-    // 日本の現在の日付データを求め数値にする
-    let here = (new Date()).getTime();
-
-    // グリニッジ標準時を求める
-    let gmt = here + (new Date()).getTimezoneOffset()*60*1000;
-
-    // 時差を加減して、日付データに戻す
-    let jikan = new Date(gmt + jisa*60*60*1000);
-
-    // 日付と時刻を求める
-    let year = jikan.getFullYear();
-    let month = jikan.getMonth()+1;
-    let day = jikan.getDate();
-    let hour = jikan.getHours();
-    let minu = jikan.getMinutes();
-    let sec = jikan.getSeconds();
-
-    // 時間表示の修正(10未満は前に0を付ける)
-    if (hour < 10) hour = "0"+hour;
-    if (minu < 10) minu = "0"+minu;
-    if (sec < 10) sec = "0"+sec;
-
-    // 日付と時刻を表示する
-    let wDate = year+"年"+month+"月"+day+"日";
-    let wTime = hour+":"+minu+":"+sec;
-    document.wrdClock.wrdTime.value = wDate + " " + wTime;
-
-  }
-
-  
-  
-
 </script>
 
 </body>

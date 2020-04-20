@@ -6,22 +6,35 @@
   <title>exercises</title>
   <link rel="stylesheet" href="css/styles.css">
 </head>
-<form>
-  <input type="button" value="テキスト" onclick="reWrite(0)">
-  <input type="button" value="HTMLタグ" onclick="reWrite(1)">
-</form>
-
-<div id="str">このタグの中身を書き換えます。</div>
+<body>
+  <img id="gazo" onclick="changeIMG()" src="image/0.jpg" width="320" height="240">
+  
 
 <script>
-  function reWrite(num) {
-    if (document.getElementById) {
-      if (num == 0) {
-        document.getElementById("str").textContent = "<b>テキスト</b>の書換え";
-      } else {
-        document.getElementById("str").innerHTML = "<b>タグ</b>を含む書換え";
-      }
+  
+  // 画像を配列に格納する
+  let img = new Array();
+
+  img[0] = new Image();
+  img[0].src = "image/0.jpg";
+  img[1] = new Image();
+  img[1].src = "image/1.jpg";
+  img[2] = new Image();
+  img[2].src = "image/2.jpg";
+
+  // 画像番号用のグローバル関数
+  let cnt = 0;
+
+  // 画像切り替え関数
+  function changeIMG() {
+    if (cnt === 2) {
+      cnt = 0;
+    } else {
+      cnt++;
     }
+
+    // 画像を切り替える
+    document.getElementById("gazo").src = img[cnt].src;
   }
 </script>
 

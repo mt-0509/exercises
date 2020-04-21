@@ -7,35 +7,20 @@
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-  <img id="gazo" onclick="changeIMG()" src="image/0.jpg" width="320" height="240">
+  <div id="col">文字色が変わります</div>
+  <form>
+    <input type="button" value="赤文字" onclick="chgColor()">
+  </form>
   
 
 <script>
-  
-  // 画像を配列に格納する
-  let img = new Array();
-
-  img[0] = new Image();
-  img[0].src = "image/0.jpg";
-  img[1] = new Image();
-  img[1].src = "image/1.jpg";
-  img[2] = new Image();
-  img[2].src = "image/2.jpg";
-
-  // 画像番号用のグローバル関数
-  let cnt = 0;
-
-  // 画像切り替え関数
-  function changeIMG() {
-    if (cnt === 2) {
-      cnt = 0;
-    } else {
-      cnt++;
+  function chgColor() {
+    if (document.getElementById) {
+      document.getElementById('col').style.color = "red";
     }
-
-    // 画像を切り替える
-    document.getElementById("gazo").src = img[cnt].src;
   }
+  
+  
 </script>
 
 </body>

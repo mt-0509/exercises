@@ -7,16 +7,50 @@
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-  <div id="col">文字色が変わります</div>
-  <form>
-    <input type="button" value="赤文字" onclick="chgColor()">
+  <div id="end">おわり</div>
+  <form name="btn">
+    <input type="button" value="タイマー開始" onclick="tmStart()">
   </form>
+  
   
 
 <script>
-  function chgColor() {
-    if (document.getElementById) {
-      document.getElementById('col').style.color = "red";
+  let cnt = 0;
+  let timer1;
+
+  function tmStart() {
+    if(document.getElementById) {
+      // 最初にボタンを押せなくする
+      if(cnt == 0) {
+        document.btn.elements[0].disabled = true;
+      }
+
+      // document.getElementById()の省略
+      obj = document.getElementById("end");
+
+      // 最初の1.6秒で文字を黒→白に変更する
+      if (cnt < 16) {
+        col16 = cnt.toString(16);
+        obj.style.color = "#"+col16+col16+col16;
+      }
+
+      // 3.2秒後に文字を白→黒に変更する
+      if (cnt > 48) {
+        col16 = (64-cnt).toString(16);
+        obj.style.color = "#"+col16+col16+col16;
+      }
+
+      cnt++;
+
+      if(cnt <= 64) {
+        // 関数tmStart()を0.1秒間隔で呼び出す
+        timer1 = setTimeout("tmStart()", 100);
+      } else {
+        // 6.4秒後にタイマーを停止し、ボタンを押せるようにする
+        clearTimeout(timer1);
+        cnt=0;
+        document.btn.elements[0].disabled = false;
+      }
     }
   }
   

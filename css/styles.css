@@ -1,0 +1,7 @@
+div#end {
+  font-size: 50pt;
+  text-align: center;
+  color: black;
+  background-color: black;
+  border: 1px solid gray;
+}

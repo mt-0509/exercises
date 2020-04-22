@@ -7,50 +7,45 @@
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-  <div id="end">おわり</div>
-  <form name="btn">
-    <input type="button" value="タイマー開始" onclick="tmStart()">
-  </form>
+  <form>
+    <input type="button" value="Timesにする" onclick="chgFont(0)">
+    <input type="button" value="Arialにする" onclick="chgFont(1)">
+    <input type="button" value="太字にする" onclick="chgFont(2)">
+    <input type="button" value="太字を戻す" onclick="chgFont(3)">
+    <input type="button" value="斜体にする" onclick="chgFont(4)">
+    <input type="button" value="斜体を戻す" onclick="chgFont(5)">
+    <input type="button" value="36ptにする" onclick="chgFont(6)">
+    <input type="button" value="12ptにする" onclick="chgFont(7)">
+    </form>
+
+    <div id="fontdisp">JavaScript</div>
   
   
 
 <script>
-  let cnt = 0;
-  let timer1;
+  function chgFont(num) {
+    if (document.getElementById) {
+      // document.getElementById("id名")の省略
+      let obj = document.getElementById("fontdisp");
 
-  function tmStart() {
-    if(document.getElementById) {
-      // 最初にボタンを押せなくする
-      if(cnt == 0) {
-        document.btn.elements[0].disabled = true;
+      switch(num) {
+        // フォントの変更
+        case 0: obj.style.fontFamily = "Times";break;
+        case 1: obj.style.fontFamily = "Arial";break;
+
+        // 太字のON・OFF
+        case 2: obj.style.fontWeight = "bold";break;
+        case 3: obj.style.fontWeight = "normal";break;
+
+        // 斜体のON・OFF
+        case 4: obj.style.fontStyle = "italic";break;
+        case 5: obj.style.fontStyle = "normal";break;
+
+        // サイズの変更
+        case 6: obj.style.fontSize = "36pt";break;
+        case 7: obj.style.fontSize = "12pt";break;
       }
 
-      // document.getElementById()の省略
-      obj = document.getElementById("end");
-
-      // 最初の1.6秒で文字を黒→白に変更する
-      if (cnt < 16) {
-        col16 = cnt.toString(16);
-        obj.style.color = "#"+col16+col16+col16;
-      }
-
-      // 3.2秒後に文字を白→黒に変更する
-      if (cnt > 48) {
-        col16 = (64-cnt).toString(16);
-        obj.style.color = "#"+col16+col16+col16;
-      }
-
-      cnt++;
-
-      if(cnt <= 64) {
-        // 関数tmStart()を0.1秒間隔で呼び出す
-        timer1 = setTimeout("tmStart()", 100);
-      } else {
-        // 6.4秒後にタイマーを停止し、ボタンを押せるようにする
-        clearTimeout(timer1);
-        cnt=0;
-        document.btn.elements[0].disabled = false;
-      }
     }
   }
   

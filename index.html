@@ -8,46 +8,35 @@
 </head>
 <body>
   <form>
-    <input type="button" value="Timesにする" onclick="chgFont(0)">
-    <input type="button" value="Arialにする" onclick="chgFont(1)">
-    <input type="button" value="太字にする" onclick="chgFont(2)">
-    <input type="button" value="太字を戻す" onclick="chgFont(3)">
-    <input type="button" value="斜体にする" onclick="chgFont(4)">
-    <input type="button" value="斜体を戻す" onclick="chgFont(5)">
-    <input type="button" value="36ptにする" onclick="chgFont(6)">
-    <input type="button" value="12ptにする" onclick="chgFont(7)">
-    </form>
+    <input type="button" value="左揃え" onclick="txtalign(0)">
+    <input type="button" value="中央揃え" onclick="txtalign(1)">
+    <input type="button" value="右揃え" onclick="txtalign(2)">
+    <input type="button" value="両端揃え" onclick="txtalign(3)">
+  </form>
 
-    <div id="fontdisp">JavaScript</div>
+  <p id="soroe">
+    ここの段落の文字を、左揃え・右揃え・中央揃え・両端揃えに変更します。
+    変更するには、document.getElementById().style.textAlignを使います。
+  </p>
   
   
 
 <script>
-  function chgFont(num) {
+  function txtalign(num) {
+
     if (document.getElementById) {
-      // document.getElementById("id名")の省略
-      let obj = document.getElementById("fontdisp");
 
-      switch(num) {
-        // フォントの変更
-        case 0: obj.style.fontFamily = "Times";break;
-        case 1: obj.style.fontFamily = "Arial";break;
+      let obj = document.getElementById('soroe');
 
-        // 太字のON・OFF
-        case 2: obj.style.fontWeight = "bold";break;
-        case 3: obj.style.fontWeight = "normal";break;
-
-        // 斜体のON・OFF
-        case 4: obj.style.fontStyle = "italic";break;
-        case 5: obj.style.fontStyle = "normal";break;
-
-        // サイズの変更
-        case 6: obj.style.fontSize = "36pt";break;
-        case 7: obj.style.fontSize = "12pt";break;
+      switch (num) {
+        case 0:obj.style.textAlign = "left";break;
+        case 1:obj.style.textAlign = "center";break;
+        case 2:obj.style.textAlign = "right";break;
+        case 3:obj.style.textAlign = "justify";break;
       }
-
     }
   }
+  
   
   
 </script>

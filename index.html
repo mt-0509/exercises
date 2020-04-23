@@ -7,35 +7,23 @@
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
+  <div id="disp">この文章を表示したり消したりします。</div>
+
   <form>
-    <input type="button" value="字下げ無" onclick="pIndent(0)">
-    <input type="button" value="字下げ有" onclick="pIndent(1)">
-    <input type="button" value="50px下げ" onclick="pIndent(2)">
+    <input type="button" value="表示" onclick="hyoji1(0)">
+    <input type="button" value="非表示" onclick="hyoji1(1)">
   </form>
 
-  <p id="jisage">ここの段落の先頭を字下げします。
-    字下げはtextpIndentを使います。インデント幅は文字数だけでなく、
-    ptやpxも使えます。マイナス値を指定すれば前に飛び出します。
-  </p>
-  
-  
-
 <script>
-  function pIndent(num) {
-
-    if (document.getElementById) {
-
-      let obj = document.getElementById('jisage');
-
-      switch (num) {
-        case 0: obj.style.textIndent = "0em";break;
-        case 1: obj.style.textIndent = "1em";break;
-        case 2: obj.style.textIndent = "50px";break;
-      }
+  function hyoji1(num) {
+    if (num == 0) {
+      document.getElementById('disp').style.display = "block";
+    } else {
+      document.getElementById('disp').style.display = "none";
     }
+
+    
   }
-  
-  
   
   
 </script>

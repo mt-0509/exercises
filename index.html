@@ -7,24 +7,21 @@
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-  <div id="disp">この文章を表示したり消したりします。</div>
-
-  <form>
-    <input type="button" value="表示" onclick="hyoji1(0)">
-    <input type="button" value="非表示" onclick="hyoji1(1)">
-  </form>
+  <img id="img1" src="image/gazo.jpg" width="240" height="180" alt="" onmouseover="imgBig()" onmouseout="imgSmall()"><br>
 
 <script>
-  function hyoji1(num) {
-    if (num == 0) {
-      document.getElementById('disp').style.visibility = "visible";
-    } else {
-      document.getElementById('disp').style.visibility = "hidden";
-    }
-
-    
+  // 画像を大きくする関数(カーソルが乗ったとき)
+  function imgBig() {
+    document.getElementById('img1').style.width = "480px";
+    document.getElementById('img1').style.height = "360px";
   }
-  
+
+  // 画像を小さくする関数(カーソルが離れたとき)
+  function imgSmall() {
+    document.getElementById('img1').style.width = "240px";
+    document.getElementById('img1').style.height = "180px";
+  }
+
   
 </script>
 

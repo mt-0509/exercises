@@ -1,29 +1,24 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>exercises</title>
   <link rel="stylesheet" href="css/styles.css">
 </head>
+
 <body>
-  <img id="img1" src="image/gazo.jpg" width="240" height="180" alt="" onmouseover="imgBig()" onmouseout="imgSmall()"><br>
-
-<script>
-  // 画像を大きくする関数(カーソルが乗ったとき)
-  function imgBig() {
-    document.getElementById('img1').style.width = "480px";
-    document.getElementById('img1').style.height = "360px";
-  }
-
-  // 画像を小さくする関数(カーソルが離れたとき)
-  function imgSmall() {
-    document.getElementById('img1').style.width = "240px";
-    document.getElementById('img1').style.height = "180px";
-  }
-
-  
-</script>
-
+  <div id="app">
+    <h1>{{ message }}</h1>
+  </div>
+  <div id="app2">
+    <input type="button" value="がんばれボタン" v-on:click="ganba">
+    <input type="button" value="カウトアップ" v-on:click="count_up">
+    <p>{{ count }}</p>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+  <script src="js/main.js"></script>
 </body>
+
 </html>

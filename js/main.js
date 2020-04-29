@@ -1,33 +1,16 @@
 var app = new Vue({
-  el: "#app",
+  el: "#app1",
   data: {
-    message: 'Vue.js練習問題'
-  }
-})
-
-var app2 = new Vue({
-  el: "#app2",
-  data: {
-    count: 0
+    name: "",
+    age: "",
+    sex: "",
+    introduction: "",
+    isActive: true
   },
   methods: {
-    ganba: function() {
-      alert('こんにちは');
-    },
-    count_up: function () {
-      this.count++;
+    fontsize: function() {
+      this.isActive = !this.isActive
     }
-  }
-})
 
-var app3 = new Vue({
-  el: "#app3",
-  data: {
-    count: 0
-  },
-  methods: {
-    count_up: function () {
-      this.count++;
-    }
   }
 })

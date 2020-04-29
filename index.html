@@ -9,14 +9,26 @@
 </head>
 
 <body>
-  <div id="app">
-    <h1>{{ message }}</h1>
+  <h1>Vueセクション・チャプター③</h1>
+  <div id="app1" v-bind:class="{active: isActive}">
+    <form>
+      <input type="text" v-model="name" placeholder="名前を入力してください">
+      <input type="text" v-model="age" placeholder="年齢を入力してください">
+      <select name="" v-model="sex">
+        <option value="性別" disabled selected></option>
+        <option value="男">男</option>
+        <option value="女">女</option>
+        <option value="その他">その他</option>
+      </select>
+      <textarea v-model="introduction" placeholder="自己紹介をしてください"></textarea>
+    </form>
+    <p>私の名前は{{ name }}です</p>
+    <p>年齢は{{ age }}歳です</p>
+    <p>性別は{{ sex }}です</p>
+    <p>一言 :{{ introduction }}</p>
+    <button v-on:click="fontsize">文字サイズを変更</button>
   </div>
-  <div id="app2">
-    <input type="button" value="がんばれボタン" v-on:click="ganba">
-    <input type="button" value="カウトアップ" v-on:click="count_up">
-    <p>{{ count }}</p>
-  </div>
+  
   <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
   <script src="js/main.js"></script>
 </body>

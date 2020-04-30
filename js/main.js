@@ -5,12 +5,31 @@ var app = new Vue({
     age: "",
     sex: "",
     introduction: "",
-    isActive: true
+    isActive: false,
+    select: ""
   },
   methods: {
-    fontsize: function() {
+    fontsize: function () {
       this.isActive = !this.isActive
-    }
+    },
+    colorchange: function () {
+      switch (this.select) {
+        case "red":
+          app1.style.color = "red";
+          break;
 
+        case "green":
+          app1.style.color = "green";
+          break;
+
+        case "black":
+          app1.style.color = "black";
+          break;
+
+        case "blue":
+          app1.style.color = "blue";
+          break;
+      }
+    }
   }
 })

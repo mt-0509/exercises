@@ -9,38 +9,11 @@
 </head>
 
 <body>
-  <h1>Vueセクション・チャプター③</h1>
-  <div id="app1" v-bind:class="{active: isActive}">
-    <form name="form1">
-      <input type="text" v-model="name" placeholder="名前を入力してください">
-      <input type="text" v-model="age" placeholder="年齢を入力してください">
-
-      <select name="" v-model="sex">
-        <option disabled value=""></option>
-        <option value="男">男</option>
-        <option value="女">女</option>
-        <option value="その他">その他</option>
-      </select>
-
-      <textarea v-model="introduction" placeholder="自己紹介をしてください"></textarea>
-      
-      <p>私の名前は{{ name }}です</p>
-      <p>年齢は{{ age }}歳です</p>
-      <p>性別は{{ sex }}です</p>
-      <p>一言 :{{ introduction }}</p>
-      
-      <button v-on:click="fontsize">文字サイズを変更</button>
-      
-      <select name="color" v-model="select" @change="colorchange" >
-        <option value="" disabled selected></option>
-        <option value="black">黒</option>
-        <option value="green">緑</option>
-        <option value="blue">青</option>
-        <option value="red">赤</option>
-      </select>
-      
-    </form>
+  <h1>十二支</h1>
+  <div id="app">
+    
   </div>
+  
   
   <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
   <script src="js/main.js"></script>

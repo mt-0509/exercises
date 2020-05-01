@@ -1,35 +1,13 @@
-var app = new Vue({
-  el: "#app1",
+new Vue ({
+  el: "#app",
   data: {
-    name: "",
-    age: "",
-    sex: "",
-    introduction: "",
-    isActive: false,
-    select: ""
+    items: ["子", "丑", "寅", "卯", "辰", "巳", "午", "未", "申", "酉", "戌", "亥"]
   },
-  methods: {
-    fontsize: function () {
-      this.isActive = !this.isActive
-    },
-    colorchange: function () {
-      switch (this.select) {
-        case "red":
-          app1.style.color = "red";
-          break;
-
-        case "green":
-          app1.style.color = "green";
-          break;
-
-        case "black":
-          app1.style.color = "black";
-          break;
-
-        case "blue":
-          app1.style.color = "blue";
-          break;
-      }
-    }
-  }
+  template:`
+  <div>
+   <ul>
+    <li v-for="item in items">{{ item }}</li>
+   </ul>
+  </div>
+  `
 })

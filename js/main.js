@@ -1,15 +1,22 @@
 new Vue({
   el: "#app",
   data: {
-    isActive: false,
-    number: "",
-    items: ["0.算数: 田中先生　水曜4時限", "1.国語: 山田先生　火曜3時限", "2.社会: 鈴木先生　月曜2時限", "3.理科: 佐藤先生　木曜3時限", "4.道徳: 高橋先生　金曜2時限", "5.図工: 伊藤先生　金曜3時限"]
+    students: [
+      {name: '田中太朗', sex:'男性', age:'24'},
+      {name: '田中次郎', sex:'男性', age:'19'},
+      {name: '田中花子', sex:'女性', age:'14'},
+    ],
+    name: '',
+    sex: '',
+    age: ''
   },
   methods: {
-    active: function () {
-      this.isActive = !this.isActive
+    push: function () {
+      this.students.push({
+        name: this.name,
+        sex: this.sex,
+        age: this.age
+      });
     }
-    
-    
   }
 })

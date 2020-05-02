@@ -9,11 +9,24 @@
 </head>
 
 <body>
-  <h1>十二支</h1>
+  <h1>vueセクション・チャプター④</h1>
   <div id="app">
+    <input type="button" value="履修確認画面に進む" v-on:click="active"><br>
+    
+    <input type="number" placeholder="学籍番号を入力してください"  v-if="isActive" v-model.number="number"></input>
+
+    <ul v-if="number === 1111">
+      <li>0.算数: 田中先生　水曜4時限</li>
+      <li>1.国語: 山田先生　火曜3時限</li>
+      <li>2.社会: 鈴木先生　月曜2時限</li>
+      <li>3.理科: 佐藤先生　木曜3時限</li>
+      <li>4.道徳: 高橋先生　金曜2時限</li>
+      <li>5.図工: 伊藤先生　金曜3時限</li>
+    </ul>
+    <p v-else>学籍番号が該当しません</p>
     
   </div>
-  
+
   
   <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
   <script src="js/main.js"></script>

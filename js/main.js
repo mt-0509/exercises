@@ -1,13 +1,15 @@
-new Vue ({
+new Vue({
   el: "#app",
   data: {
-    items: ["子", "丑", "寅", "卯", "辰", "巳", "午", "未", "申", "酉", "戌", "亥"]
+    isActive: false,
+    number: "",
+    items: ["0.算数: 田中先生　水曜4時限", "1.国語: 山田先生　火曜3時限", "2.社会: 鈴木先生　月曜2時限", "3.理科: 佐藤先生　木曜3時限", "4.道徳: 高橋先生　金曜2時限", "5.図工: 伊藤先生　金曜3時限"]
   },
-  template:`
-  <div>
-   <ul>
-    <li v-for="item in items">{{ item }}</li>
-   </ul>
-  </div>
-  `
+  methods: {
+    active: function () {
+      this.isActive = !this.isActive
+    }
+    
+    
+  }
 })

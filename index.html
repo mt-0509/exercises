@@ -22,10 +22,10 @@
         <option value="女性">女性</option>
       </select><br>
   
-      <input type="button" value="submit" v-on:click="push" v-on:click="clear">
+      <input type="button" value="submit" v-on:click="push">
     </div>
     
-      <div v-for="(item, index) in students" :key="item.students" class="wrapper">
+      <div v-for="(item, index) in students" :key="item.id" class="wrapper">
         <li ref="first" > 
           {{item.name}}
         </li>
@@ -35,8 +35,8 @@
         <li ref="third">
           {{item.age}}
         </li>
-        <input type="button" value="編集" v-on:click="update">
-        <input type="button" value="削除" v-on:click="sakujo">
+        <input type="button" value="編集" v-on:click="update(index)">
+        <input type="button" value="削除" v-on:click="sakujo(index)">
       </div>
   
 

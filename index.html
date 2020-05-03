@@ -12,7 +12,7 @@
   <div id="app">
     <div class="wrapper">
       <form>
-        Full Name*<input type="text" name="name" v-model="name"><br>
+        Full Name*<input type="text" name="name" v-model="name" ><br>
         Age<input type="number" v-model="age"><br>
       </form>
   
@@ -22,19 +22,21 @@
         <option value="女性">女性</option>
       </select><br>
   
-      <input type="button" value="submit" v-on:click="push">
+      <input type="button" value="submit" v-on:click="push" v-on:click="clear">
     </div>
     
-      <div v-for="item in students" :key="item.name" class="wrapper">
-        <div>
+      <div v-for="(item, index) in students" :key="item.students" class="wrapper">
+        <li ref="first" > 
           {{item.name}}
-        </div>
-        <div>
+        </li>
+        <li ref="second">
           {{item.sex}}
-        </div>
-        <div>
+        </li>
+        <li ref="third">
           {{item.age}}
-        </div>
+        </li>
+        <input type="button" value="編集" v-on:click="update">
+        <input type="button" value="削除" v-on:click="sakujo">
       </div>
   
 

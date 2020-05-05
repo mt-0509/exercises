@@ -13,9 +13,13 @@ new Vue({
   methods: {
     push: function () {
       this.students.push({
-        name: this.name,
-        sex: this.sex,
-        age: this.age, 
+        // name: this.name,
+        // sex: this.sex,
+        // age: this.age, 
+
+        name: one.value,
+        sex: two.value,
+        age: three.value, 
       });
       
       this.name = "",
@@ -23,8 +27,19 @@ new Vue({
       this.age = ""
     },
     update: function (index) {
-      // 値を参照してinputタグに追加するところが不明
-      this.students.index
+      // this.$refs.r1.value = this.students[index].name
+      // this.$refs.r2.value = this.students[index].age
+      // this.$refs.r3.value = this.students[index].sex
+
+      let one = document.getElementById('one');
+      let two = document.getElementById('two');
+      let three = document.getElementById('three');
+
+      one.value = this.students[index].name;
+      two.value = this.students[index].age;
+      three.value = this.students[index].sex;
+      
+      
       
     },
     sakujo: function (index) {

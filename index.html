@@ -10,34 +10,36 @@
 
 <body>
   <div id="app">
-    <div class="wrapper">
-      <form>
-        Full Name*<input id="one" type="text" name="name" v-on="name"><br>
-        Age<input id="two" type="number" v-on="age"><br>
-      </form>
+    <div class="form-container">
+      <div>
+        <label>Full Name*</label>
+        <input type="text" name="name" id="name" v-model="inputName">
+      </div>
+      <div>
+        <label>Age</label>
+        <input type="number" name="age" id="age" v-model="inputAge">
+      </div>
+      <div>
+        <select id="sex" name='sex' v-model="selected">
+          <option value='選択しない'>選択しない</option>
+          <option value='男性'>男性</option>
+          <option value='女性'>女性</option>
+        </select>
+      </div>
+      <div>
+        <input v-on:click="updataRecord()" type="button" value="Submit">
+      </div>
   
-      <select name="" id="three" v-on="sex">
-        <option value="" selected>選択しない</option>
-        <option value="男性">男性</option>
-        <option value="女性">女性</option>
-      </select><br>
-  
-      <input type="button" value="submit" v-on:click="push">
     </div>
-    
-      <div v-for="(item, index) in students" :key="item.index" class="wrapper">
-        <li > 
-          {{item.name}}
-        </li>
-        <li>
-          {{item.sex}}
-        </li>
-        <li>
-          {{item.age}}
-        </li>
-        <input type="button" value="編集" v-on:click="update(index)">
-        <input type="button" value="削除" v-on:click="sakujo(index)">
-      </div> 
+    <ul class="card-container" v-for="(student,index) in students">
+      <li>{{student.name}}</li>
+      <li>{{student.sex}}</li>
+      <li>{{student.age}}</li>
+      <button v-on:click="deleteData(index)">削除</button>
+      <button v-on:click="onEdit(index)">編集</button>
+    </ul>
+  
+  
   </div>
 
   

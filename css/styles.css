@@ -1,6 +1,18 @@
-.wrapper {
-  border: 1px solid gray;
-  padding: 15px;
-  margin-bottom: 10px;
+li{
   list-style: none;
+}
+
+.form-container{
+  border: 1px solid #ccc;
+padding: 10px;
+}
+
+.display-container{
+  border: 1px solid #ccc;
+padding: 10px;
+}
+
+.card-container{
+    border: 1px solid #ccc;
+padding: 10px;
 }

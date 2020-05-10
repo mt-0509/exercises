@@ -1,54 +1,47 @@
-new Vue({
-  el: "#app",
+var app = new Vue({
+  el: '#app',
   data: {
-    students: [
-      { name: '田中太朗', sex: '男性', age: '24' },
-      { name: '田中次郎', sex: '男性', age: '19' },
-      { name: '田中花子', sex: '女性', age: '14' },
-    ],
-    name: '',
-    sex: '',
-    age: '',
+    selectDataNum: null,
     inputName: '',
-    selectedSex: '',
+    selected: '',
     inputAge: '',
-    selectedDataNum: '',
+    students: [
+      {
+        name: '田中太朗',
+        sex: '男性',
+        age: '24'
+      },
+      {
+        name: '田中次郎',
+        sex: '男性',
+        age: '19'
+      },
+      {
+        name: '田中花子',
+        sex: '女性',
+        age: '14'
+      },
+    ]
   },
   methods: {
-    push: function () {	
-      this.students.push({
-        // name: this.name,
-        // sex: this.sex,
-        // age: this.age,
-
-        name: one.value,
-        sex: two.value,
-        age: three.value,
-        // name: this.students[index].name
-      });
-
-      //  = this.students[index].name;
-      
-      // v-modelからv-onに変更したことによって空にできなくなっている
-      this.name = "",
-      this.sex = "",
-      this.age = ""
+    resetForm: function () {
+      this.inputName = "";
+      this.selected = "";
+      this.inputAge = "";
+      this.selectDataNum = null;
     },
-    update: function (index) {
-
-      let one = document.getElementById('one');
-      let two = document.getElementById('two');
-      let three = document.getElementById('three');
-
-      one.value = this.students[index].name;
-      two.value = this.students[index].age;
-      three.value = this.students[index].sex;
-      console.log(this.students[index]);
-
-      // this.students[index].name = this.inputName
+    updataRecord: function () {
+      Vue.set(this.students, this.selectDataNum, {name: this.inputName, sex:this.selected, age: this.inputAge})
+      this.resetForm();
     },
-    sakujo: function (index) {
-      this.students.splice(index, 1);
+    deleteData: function (index) {
+      Vue.delete(this.students, index)
+    },
+    onEdit: function (index) {
+      this.selectedDataNum = index;
+      this.inputAge = this.students[index].age
+      this.inputName = this.students[index].name
+      this.selected = this.students[index].sex
     }
-  }
-}) 
+  },
+})

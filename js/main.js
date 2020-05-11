@@ -1,7 +1,10 @@
+let selectedDataNum = null; //選択しているデータの背番号
+let isEditMode = false; //編集モードであるかどうかの真偽値
+
 var app = new Vue({
   el: '#app',
   data: {
-    selectDataNum: null,
+    // selectDataNum: null,
     inputName: '',
     selected: '',
     inputAge: '',
@@ -28,20 +31,32 @@ var app = new Vue({
       this.inputName = "";
       this.selected = "";
       this.inputAge = "";
-      this.selectDataNum = null;
+      selectedDataNum = null;
+      isEditMode = false;
+    },
+    insertNewRecord: function () {
+      app.students.push({name:this.inputName,sex:this.selected,age:this.inputAge})
     },
     updataRecord: function () {
-      Vue.set(this.students, this.selectDataNum, {name: this.inputName, sex:this.selected, age: this.inputAge})
-      this.resetForm();
+      Vue.set(app.students, selectedDataNum, {name: this.inputName, sex:this.selected, age: this.inputAge})
+    },
+    onFormSubmit: function() {
+      if (isEditMode) {
+        app.updataRecord();
+      } else {
+        app.insertNewRecord();
+      }
+      app.resetForm();
     },
     deleteData: function (index) {
-      Vue.delete(this.students, index)
+      Vue.delete(app.students, index)
     },
     onEdit: function (index) {
-      this.selectedDataNum = index;
-      this.inputAge = this.students[index].age
-      this.inputName = this.students[index].name
-      this.selected = this.students[index].sex
+      selectedDataNum = index;
+      app.inputAge = app.students[selectedDataNum].age
+      app.inputName = app.students[selectedDataNum].name
+      app.selected = app.students[selectedDataNum].sex
+      isEditMode = true;
     }
   },
 })

@@ -1,62 +1,30 @@
-let selectedDataNum = null; //選択しているデータの背番号
-let isEditMode = false; //編集モードであるかどうかの真偽値
+'use strict';
+{
+  // 男子と女子のクラスを取得
+  const male = document.querySelectorAll('.male');
+  const female = document.querySelectorAll('.female');
 
-var app = new Vue({
-  el: '#app',
-  data: {
-    // selectDataNum: null,
-    inputName: '',
-    selected: '',
-    inputAge: '',
-    students: [
-      {
-        name: '田中太朗',
-        sex: '男性',
-        age: '24'
-      },
-      {
-        name: '田中次郎',
-        sex: '男性',
-        age: '19'
-      },
-      {
-        name: '田中花子',
-        sex: '女性',
-        age: '14'
-      },
-    ]
-  },
-  methods: {
-    resetForm: function () {
-      this.inputName = "";
-      this.selected = "";
-      this.inputAge = "";
-      selectedDataNum = null;
-      isEditMode = false;
-    },
-    insertNewRecord: function () {
-      app.students.push({name:this.inputName,sex:this.selected,age:this.inputAge})
-    },
-    updataRecord: function () {
-      Vue.set(app.students, selectedDataNum, {name: this.inputName, sex:this.selected, age: this.inputAge})
-    },
-    onFormSubmit: function() {
-      if (isEditMode) {
-        app.updataRecord();
-      } else {
-        app.insertNewRecord();
-      }
-      app.resetForm();
-    },
-    deleteData: function (index) {
-      Vue.delete(app.students, index)
-    },
-    onEdit: function (index) {
-      selectedDataNum = index;
-      app.inputAge = app.students[selectedDataNum].age
-      app.inputName = app.students[selectedDataNum].name
-      app.selected = app.students[selectedDataNum].sex
-      isEditMode = true;
-    }
-  },
-})
+  // ボタンのID取得
+  const btnone = document.getElementById('btnone');
+  const btntwo = document.getElementById('btntwo');
+
+  // テーブル
+  const list = document.getElementById('list');
+  let row = list.rows;
+  console.log(row[1]);
+
+  // 男女全体を変更する処理
+  btnone.addEventListener('click', () => {
+    male.forEach(el => {
+      el.innerHTML = '男子'
+    });
+    female.forEach(el => {
+      el.innerHTML = '女子'
+    })
+  });
+
+  // 選択された行の男女を変更する
+  btntwo.addEventListener('click', () => {
+
+  })
+}

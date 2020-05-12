@@ -1,18 +1,7 @@
-li{
-  list-style: none;
+body {
+  font-weight: bold;
 }
 
-.form-container{
-  border: 1px solid #ccc;
-padding: 10px;
-}
-
-.display-container{
-  border: 1px solid #ccc;
-padding: 10px;
-}
-
-.card-container{
-    border: 1px solid #ccc;
-padding: 10px;
+body table {
+  text-align: center;
 }

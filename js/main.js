@@ -1,25 +1,24 @@
 'use strict';
 {
-  new Vue ({
-  el:'#app',
-  data: {
-    show: true
-  },
-  methods: {
-    handleClick() {
-      let count = this.$refs.count
-      if(count) {
-        count.innerText = parseInt(count.innerText, 10) + 1
+  new Vue({
+    el: '#app',
+    data: {
+      message: 'Hello Vue.js',
+    },
+    methods: {
+      handleInput: function (event) {
+        // 代入前に何か処理を行う…
+        this.message = event.target.value
       }
     }
-  }
+  })
   
   
-})
-
-
-
-
-
-
+  
 }
+
+
+
+
+
+

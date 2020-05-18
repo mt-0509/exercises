@@ -10,9 +10,10 @@
 
 <body>
   <div id="app">
-    <button v-on:click="handleClick">カウントアップ</button>
-    <button v-on:click="show=!show">表示/非表示</button>
-    <span ref="count" v-if="show">0</span>
+    <input v-bind:value="message" v-on:change="handleInput">
+
+
+
   </div>
 
 

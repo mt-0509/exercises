@@ -3,15 +3,23 @@
   new Vue({
     el: '#app',
     data: {
-      message: 'Hello Vue.js',
-    },
-    methods: {
-      handleInput: function (event) {
-        // 代入前に何か処理を行う…
-        this.message = event.target.value
+      width: 800
+      },
+
+    computed: {
+      halfWidth: function () {
+        return this.width / 2
+      },
+      x: function () {
+
+        console.log(this.halfWidth);
+
       }
     }
   })
+  
+  
+  
   
   
   

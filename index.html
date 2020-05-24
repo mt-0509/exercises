@@ -10,22 +10,15 @@
 
 <body>
   <div id="app">
-    <input v-model="firstName" placeholder="firstName">
-    <input v-model="lastName" placeholder="lastName">
-    <p>firstName: {{ firstName }}</p>
-    <p>lastName: {{ lastName }}</p>
-    <p>fullName: {{ fullName }}</p>
-    <p>now: {{ now }}</p>
+    <p>180度は{{ 180 | radian | round}}ラジアン</p>
   </div>
-
-  
-
 
 
   <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.5/lodash.min.js"></script>
 
   <script src="js/main.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.5/lodash.min.js"></script>
+
 </body>
 
 </html>

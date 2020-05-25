@@ -1,19 +1,23 @@
 'use strict';
 {
+  let myComponent = {
+    template: '<p>{{ message }}</p>',
+    data: function () {
+      return {
+        message: 'Hello Vue.js'
+      }
+    }
+  }
   new Vue({
     el: '#app',
-    data: {
-      list: []
+    components: {
+      'my-component': myComponent
     },
-    watch: {
-      list: function () {
-        console.log('通常:', this.$refs.list.offsetHeight)
-        this.$nextTick(function () {
-          console.log('nextTick:', this.$refs.list.offsetHeight)
-        })
+    methods: {
+      seikou: function () {
+        console.log('ok');
       }
     }
   })
-
 
 }

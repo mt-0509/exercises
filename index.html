@@ -10,7 +10,12 @@
 
 <body>
   <div id="app">
-    <p>180度は{{ 180 | radian | round}}ラジアン</p>
+    <button v-on:click="list.push(list.length+1)">追加</button>
+    <ul ref="list">
+      <li v-for="item in list">{{ item }}</li>
+    </ul>
+
+    
   </div>
 
 

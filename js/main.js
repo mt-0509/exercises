@@ -2,12 +2,15 @@
 {
   new Vue({
     el: '#app',
-    filters: {
-      round: function(val) {
-        return Math.round(val * 100) / 100
-      },
-      radian: function(val) {
-        return val * Math.PI / 180
+    data: {
+      list: []
+    },
+    watch: {
+      list: function () {
+        console.log('通常:', this.$refs.list.offsetHeight)
+        this.$nextTick(function () {
+          console.log('nextTick:', this.$refs.list.offsetHeight)
+        })
       }
     }
   })

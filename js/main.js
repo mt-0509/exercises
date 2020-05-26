@@ -1,23 +1,25 @@
 'use strict';
 {
-  let myComponent = {
-    template: '<p>{{ message }}</p>',
-    data: function () {
-      return {
-        message: 'Hello Vue.js'
-      }
+  Vue.component('comp-child', {
+    template: '<div>...</div>',
+    created: function () {
+      // 自分自身のイベント
+      this.$on('open', function () {
+        console.log('なにか処理')
+      })
     }
-  }
+  })
   new Vue({
     el: '#app',
-    components: {
-      'my-component': myComponent
-    },
     methods: {
-      seikou: function () {
-        console.log('ok');
+      handleClick: function () {
+        // 子コンポーネントのイベントを発火
+        this.$refs.child.$emit('open')
       }
     }
   })
+  
+
+
 
 }

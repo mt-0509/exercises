@@ -1,39 +1,25 @@
 'use strict';
 {
-  var mixin = {
-    created: function () {
-      this.hello()
-    },
-    methods: {
-      hello: function () {
-        console.log('hello from mixin!')
-      }
+// メッセージ一覧用コンポーネント
+Vue.component('comp-board', {
+  template: '<div>Message Board</div>',
+})
+// 入力フォーム用コンポーネント
+Vue.component('comp-form', {
+  template: '<div>Form<textarea v-model="message"></textarea></div>',
+  data: function () {
+    return {
+      message: ''
     }
   }
-  
+})
 
-  Vue.component('my-component-a', {
-    mixins: [mixin],
-    template: '<div class="my-component-b">component A</div>'
-  })
-
-  Vue.component('my-component-b', {
-    mixins: [mixin],
-    template: '<div class="my-component-b">component B</div>'
-  })
-
-  new Vue({
-    el: '#app',
-    data: {
-      componentTypes: ['my-component-a', 'my-component-b'],
-      current: 0
-    },
-    computed: {
-      component: function() {
-        return this.componentTypes[this.current]
-      }
-    }
-  })
+new Vue({
+  el: '#app',
+  data: {
+    current: 'comp-board' // 動的に切り替える
+  }
+})
 
 
 }

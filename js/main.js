@@ -1,25 +1,25 @@
 'use strict';
 {
-  Vue.component('comp-child', {
-    template: '<div>...</div>',
-    created: function () {
-      // 自分自身のイベント
-      this.$on('open', function () {
-        console.log('なにか処理')
-      })
-    }
+  Vue.component('my-component-a', {
+    template: '<div class="my-component-b">component A</div>'
   })
+
+  Vue.component('my-component-b', {
+    template: '<div class="my-component-b">component B</div>'
+  })
+
   new Vue({
     el: '#app',
-    methods: {
-      handleClick: function () {
-        // 子コンポーネントのイベントを発火
-        this.$refs.child.$emit('open')
+    data: {
+      componentTypes: ['my-component-a', 'my-component-b'],
+      current: 0
+    },
+    computed: {
+      component: function() {
+        return this.componentTypes[this.current]
       }
     }
   })
-  
-
 
 
 }

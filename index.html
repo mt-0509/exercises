@@ -10,7 +10,8 @@
 
 <body>
   <div id="app">
-    <comp-child ref="child">
+    <button v-on:click="current^=1">コンポーネントを切り替え</button>
+    <div v-bind:is="component"></div>
   </div>
 
 

@@ -1,10 +1,24 @@
 'use strict';
 {
+  var mixin = {
+    created: function () {
+      this.hello()
+    },
+    methods: {
+      hello: function () {
+        console.log('hello from mixin!')
+      }
+    }
+  }
+  
+
   Vue.component('my-component-a', {
+    mixins: [mixin],
     template: '<div class="my-component-b">component A</div>'
   })
 
   Vue.component('my-component-b', {
+    mixins: [mixin],
     template: '<div class="my-component-b">component B</div>'
   })
 

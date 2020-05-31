@@ -10,11 +10,12 @@
 
 <body>
   <div id="app">
-    <button v-on:click="current='comp-board'">メッセージ一覧</button>
-    <button v-on:click="current='comp-form'">投稿フォーム</button>
-    <keep-alive>
-      <div v-bind:is="current"></div>
-    </keep-alive>
+    <p><button v-on:click="show=!show">切り替え</button></p>
+    <transition>
+      <div v-show="show">
+        トランジションさせたい要素
+      </div>
+    </transition>
   </div>
 
 
